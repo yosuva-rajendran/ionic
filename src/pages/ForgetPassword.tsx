@@ -7,11 +7,24 @@ import {
   IonButton,
   IonGrid,
   IonPage,
+  IonHeader,
+  IonButtons,
+  IonMenuButton,
+  IonTitle,
+  IonToolbar,
 } from "@ionic/react";
 import "./Login.css";
-const ForgetPassword = () => {
+const ForgetPassword: React.FC = () => {
   return (
-    <IonPage>
+    <IonPage id="menu">
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton></IonMenuButton>
+          </IonButtons>
+          <IonTitle>ForgetPassword</IonTitle>
+        </IonToolbar>
+      </IonHeader>
       <IonGrid fixed={true}>
         <IonRow>
           <IonCol></IonCol>
