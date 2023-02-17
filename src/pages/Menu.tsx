@@ -17,7 +17,7 @@ const Menu: React.FC = () => {
   return (
     <IonPage>
       <IonSplitPane contentId="menu">
-        <IonMenu contentId="menu">
+        <IonMenu contentId="menu" swipeGesture={false}>
           <IonHeader>
             <IonToolbar color="tertiary">
               <IonTitle>Menu</IonTitle>

@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
@@ -20,20 +20,32 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import Menu from "./pages/Menu";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import ForgetPassword from "./pages/ForgetPassword";
+import SignUp from "./pages/SignUp";
+import Users from "./pages/Users";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-setupIonicReact();
+const queryClient = new QueryClient();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/" component={Home} />
-        <Route path="/app" component={Menu} />
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+  <QueryClientProvider client={queryClient}>
+    <IonApp>
+      <IonReactRouter>
+        <IonRouterOutlet>
+          <Route exact path="/app" component={Home} />
+          <Route exact path="/app/login" component={Login} />
+          <Route exact path="/app/recover" component={ForgetPassword} />
+          <Route exact path="/app/signup" component={SignUp} />
+          <Route exact path="/app/users" component={Users} />
+          <Route exact path="/">
+            <Redirect to="/app" />
+          </Route>
+        </IonRouterOutlet>
+      </IonReactRouter>
+    </IonApp>
+  </QueryClientProvider>
 );
 
 export default App;

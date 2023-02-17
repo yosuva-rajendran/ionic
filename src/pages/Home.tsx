@@ -1,18 +1,24 @@
 import {
-  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
   IonMenuButton,
   IonPage,
   IonTitle,
   IonToolbar,
-  useIonRouter,
 } from "@ionic/react";
 
-const Home: React.FC = () => {
-  const navigation = useIonRouter();
+const items = [
+  { name: "Login", url: "/app/login" },
+  { name: "Sign Up", url: "/app/signup" },
+  { name: "Forget password", url: "/app/recover" },
+  { name: "Users", url: "/app/users" },
+];
 
+const Home: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -24,14 +30,15 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
-        <IonButton
-          onClick={() => {
-            navigation.push("/app", "root", "replace");
-          }}
-          expand="full"
-        >
-          Login
-        </IonButton>
+        <IonList inset={true}>
+          {items.map((item, index) => {
+            return (
+              <IonItem key={index} routerLink={item.url}>
+                <IonLabel>{item.name}</IonLabel>
+              </IonItem>
+            );
+          })}
+        </IonList>
       </IonContent>
     </IonPage>
   );

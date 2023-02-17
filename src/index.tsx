@@ -4,6 +4,12 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import AppContextProvider from "./context/AppContextProvider";
+import { setupIonicReact } from "@ionic/react";
+
+setupIonicReact({
+  swipeBackEnabled: false,
+  animated: false,
+});
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
