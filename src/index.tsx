@@ -14,11 +14,9 @@ setupIonicReact({
 const container = document.getElementById("root");
 const root = createRoot(container!);
 root.render(
-  <React.StrictMode>
-    <AppContextProvider>
-      <App />
-    </AppContextProvider>
-  </React.StrictMode>
+  <AppContextProvider>
+    <App />
+  </AppContextProvider>
 );
 
 // If you want your app to work offline and load faster, you can change
